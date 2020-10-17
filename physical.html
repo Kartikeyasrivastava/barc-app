@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>let $ = require('jquery');</script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+   
+</head>
+<body>
+    <table id="table1">
+        <tr>
+          <th></th>
+          <th>phase 1</th>
+          <th>phase 2</th>
+        </tr>
+        <tr>
+          <td>Density (kg/m3)
+        </td>
+          <td><input type="number" font size="11px" id="phases1" class="values"></td>
+          <td><input type="number" class="values1"></td>
+        </tr>
+        <tr>
+          <td>Dynamic viscosity (Pa-s)
+        </td>
+          <td><input type="number" class="values"></td>
+          <td><input type="number" class="values1"></td>
+        </tr>
+        <tr>
+          <td>Specific heat (J/kgK)
+        </td>
+          <td><input type="number" class="values"></td>
+          <td><input type="number" class="values1"></td>
+        </tr>
+        <tr>
+          <td>Thermal conductivity (W/mK)
+        </td>
+          <td><input type="number" class="values"></td>
+          <td><input type="number" class="values1"></td>
+        </tr>
+        <tr>
+          <td>Particle diameter (m)
+        </td>
+          <td><input type="number" class="values"></td>
+          <td><input type="number" class="values1"></td>
+        </tr>
+        
+      </table>
+      <br>
+      <input type="submit" id="txt-submit" class="modal-button" height="10" width="10" autofocus onclick="myFunction()">
+      <script>
+        function myFunction() {
+  document.getElementById("table1").innerHTML = "Hello World";
+}
+      </script>
+      
+    <script src="get.js"></script>
+    <script src="physical.txt"></script>
+    <div id="wrapper"></div>
+</body>
+</html>

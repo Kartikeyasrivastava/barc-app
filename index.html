@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script>let $ = require('jquery');</script>
+    
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+   
+</head>
+<body>
+    <script src="index.js"></script>
+    <nav class="col-1">        
+        <div class="menu">
+            <ul>
+                <!--<li><a href="#" class="menu-item">Geometry</a>-->
+                    <ul>
+                        <button id="modal-btn" class = "button-menu" class="menu-item">Draw</button>
+                        <div id="my-modal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">&times;</span>
+                                    <h2>Draw</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <p><img src="underconst.jpg" width="100%" height="100%"></p>
+                                </div>
+                                   <!-- <button class="modal-button">Line</button>
+                                    <br>
+                                    <button class="modal-button">Rectangle</button>
+                                    <br>
+                                    <button class="modal-button">Array Of Blocks</button>
+                                    <br>
+                                    <form action="input-field">
+                                        Modify: &ensp;&ensp;&ensp;&nbsp;
+                                        <input type="text">
+                                        <br>
+                                        <br> 
+                                        Dimensions:
+                                        <input type="text">
+                                        <br>
+                                    </form>-->
+                                    
+                                <!--<div class="modal-footer">
+                                </div>-->
+                            </div>
+                        </div>
+  <button id="modal-btn" class = "button-menu" class="menu-item">Mesh Generation</button>
+  
+                        <div id="my-modal" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <span class="close">&times;</span>
+                                    <h2>Mesh Generation</h2>
+
+                                </div>
+                                <div class="modal-body">
+                           <form id="sizePicker">
+                                        <label class="fonts">Length in x-direction (in m)  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+                                             <input type="number" id="width_length" name="width"  value="" step="0.01" class="size">
+                                        </label>
+                                        <br>
+                                        <label class="fonts"> Length in y-direction (in m) &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                                 <input type="number" id="height_length" name="height"  step="0.01" value="" class="size">
+                                        </label>
+                                        <br>
+                                        <label class="fonts">Number of divisions in x-direction&nbsp;
+                                            <input type="number" id="input_width" name="width" class="size" ></label>
+                                            <br>  
+                                        <label class="fonts">Number of divisions in y-direction&nbsp;
+                                            <input type="number" id="input_height" name="height" class="size">
+                                        </label>
+                                        
+                                        <br>
+                                         <input type="submit" id="grid-submit" class="modal-button" autofocus>
+                                        <input type="reset" value="Reset" class="modal-button">
+                                      </form>
+                                     
+                                      
+                                        
+                                </div>
+                               
+                                
+                            </div>
+                        </div>
+                    </ul></li>
+                <li>
+               <!-- <a href="#" class="menu-item">Physical properties</a>-->
+                    <button id="modal-btn" class = "button-menu" class="menu-item">Physical properties</button>
+                <ul> 
+                    <div id="my-modal" class="modal">
+                         <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Physical properties of phases
+                                </h2>
+                            </div>
+                            <div class="modal-body">
+                               <form id="physical_properties" name="form1"  method="get">
+                                <label class="fonts">Enter the number of phases:
+                                   <br>
+    
+                                 <!--  <input type="number" id="phases" name="phases"  class="size">--> 
+                                    <select type="text" value="" name="Subject"> 
+                                        <option>1</option> 
+                                        <option>2</option> 
+                                        <option>3</option> 
+                                        <option>4</option> 
+                                        <option>5</option> 
+                                    </select>
+                                </label></form>
+                                
+                                <br>
+                                <input type="submit"  id="physical_submit"  class="modal-button" onclick="window.location.href='physical.html'" autofocus>
+                            </div>
+                               
+                            
+                             <!--  <input type="submit" onclick="myFunction()" id="physical-submit" value="next" class="modal-button"  autofocus>--> 
+                                
+                            </div></div>
+                </ul></li>
+                <li><button id="boundary" class = "button-menu" class="menu-item">Boundary Conditions</button>
+                <ul>
+<!--  <button id="initial" class = "button-menu" class="menu-item">Initial Conditions</button>-->
+                    <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Initial Conditions</h2>
+                            </div>
+                                <div class="modal-body">
+                                    <form action="input-field">
+                                        Boundary name:  <input type="text" class="size">
+                                        <h1>Coordinate of edges</h1>
+                                        point 1:
+                                        <input type="text" class="size">
+                                        <br>
+                                        <br> 
+                                        point 2:
+                                        <input type="text" class="size">
+                                        <br>
+                                    </form>
+                                    <br>
+                                    <input type="submit" id="modal-submit" class="modal-button" autofocus >
+                                    
+
+                                </div></div></div>
+                </ul></li>
+                <li>
+                    <!--<a href="#" class="menu-item">Models</a>-->
+                    <button id="models" class = "button-menu" class="menu-item">Models</button></li>
+               <!--- <ul>
+                    <button id="modal-btn" class = "button-menu" class="menu-item">Chemical Formula</button>-->
+                    <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Models</h2>
+                            </div>
+                            <div class="modal-body">
+                               <!-- <form action="input-field">
+                                    Equations:
+                                    <input type="text">
+                                    <br>
+                                    <br> 
+                                    Formulas:
+                                    <input type="text">
+                                    <br>
+                                </form>
+                                <input type="submit" id="grid-submit" class="modal-button" autofocus>-->
+                                <img src="underconst.jpg" width="100%" height="100%">
+                            </div>
+                            </div></div>
+                </ul>
+                 <button id="Simulation" class = "button-menu" class="menu-item">Simulation details</button>
+                <ul>
+               <!-- <button id="modal-btn" class = "button-menu" class="menu-item">Solution controls</button>-->
+                    <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Simulation</h2>
+                            </div>
+                                <div class="modal-body">
+                                  <!--  <button class="modal-button">Live</button>
+                                    <br>
+                                    <button class="modal-button">Virtual</button>
+                                    <br>
+                                    <button class="modal-button">Constructive</button>
+                                    <br>
+                                   
+                                    <form action="input-field">
+                                        Modify:
+                                        <input type="text">
+                                        <br>
+                                        <br> 
+                                        Dimensions:
+                                        <input type="text">
+                                        <br>
+                                    </form>
+                                    <input type="submit" id="grid-submit" class="modal-button" autofocus> -->
+                                    <img src="underconst.jpg" width="100%" height="100%">
+                                </div>
+                                </div>
+
+                            </div>
+                            <br>
+                            
+                    <button id="run" class = "button-menu" class="menu-item">Run</button>
+                    <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Run</h2>
+                                </div>
+                                <div class="modal-body">
+                               <!-- <form action="input-field">
+                                    Compile: &ensp;&ensp;&ensp;&nbsp;
+                                    <input type="text">
+                                    <br>
+                                    <br> 
+                                    Debug:
+                                    <input type="text">
+                                    <br>
+                                </form>
+                                <input type="submit" id="grid-submit" class="modal-button" autofocus>-->
+                                <img src="underconst.jpg" width="100%" height="100%">
+                            </div>
+                            </div></div></ul>
+                           <!-- <li><a href="#" class="menu-item">Results</a></li>-->
+                <ul>
+                    <button id="modal-btn" class = "button-menu" class="menu-item">Line Plots</button>
+                    <div id="my-modal" class="modal">
+                        <div class="modal-content">
+                            <div class="bottom-right-box">
+                                <span class="close">&times;</span>
+                             <!--   <button class="button-close"></button>-->
+                              
+                                <h3>Line Plots</h3>
+                            </div>  </div>
+                            <!--<div class="modal-header">
+                                <span class="close">&times;</span>
+                                <h2>Line</h2>
+                            </div>
+                            
+                                <form action="input-field">
+                                    Straight line:
+                                    <input type="text">
+                                    <br>
+                                    <br> 
+                                    Curve Line:
+                                    <input type="text">
+                                    <br>
+                                </form></div>
+                            </div>--></div>
+                            <button id="modal-btn" class = "button-menu" class="menu-item">Contour Plots</button>
+                            <div id="my-modal" class="modal">
+                                <div class="modal-content">
+                                   
+                                  <!--  <div class="top-right-box">
+                                        <span class="close">&times;</span>
+                                        <button class="button-close"></button>
+                          <h3>Contour Plots</h3>
+                        </div>-->
+                                  <div class="modal-header">
+                                        <span class="close">&times;</span>
+                                        <h2>Contour</h2>
+                            <div id="myDiv" width="50%" height="50%"> </div></div>
+                       </ul>
+
+               
+        
+        </div>
+    </nav>
+    <div class="col-2">
+        <main class="content">
+            <article>
+                <main class="content">
+                    <section class="control-panel">
+                       
+                    </section>
+                    <table id="pixel_canvas"></table>
+                  </main>
+            </article>
+            <aside>
+                <br>
+                <br>
+              <!--  <div class="top-right-box">
+                    <button class="button-close"><i class="fa fa-close"></i></button>
+      <h3>Contour Plots</h3>
+    </div>
+                <div class="bottom-right-box">
+                    <button class="button-close"><i class="fa fa-close"></i></button>
+                  
+                    <h3>Line Plots</h3>
+                </div> -->
+            </aside>
+        </main>
+        <footer>
+            <button id="button-1">Geometry</button>
+                    <button id="button-2">Progress</button>
+            <div class="bottom">
+                <h3>Operation History</h3>
+                <div class="button-bottom">
+                             
+                        <div id="coords" style="color: blue; size: 24px;" >
+                            
+                        </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="modal.js"></script>
+    <script src="get.js"></script>
+    <script src="physical.js"></script>
+    
+</body>
+
+</html>
